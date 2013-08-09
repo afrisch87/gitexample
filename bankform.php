@@ -1,7 +1,14 @@
 <?php
+  session_start();
+  if(!isset($_SESSION['count']) && $_SERVER['REQUEST_METHOD'] == 'POST') {
+    $_SESSION['count'] = 0;
+  } else {
+    $_SESSION['count']++;
+  }
 
-
-
+  print_r ($_SESSION);
+  echo $_SESSION['count'];
+ // session_destroy();
   $form =
  ' <FORM action="bankform.php" method="post">
     <fieldset>
