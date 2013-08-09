@@ -1,5 +1,7 @@
 <?php
 
+
+
   $form =
  ' <FORM action="bankform.php" method="post">
     <fieldset>
@@ -9,8 +11,21 @@
     <INPUT type="radio" name="trans_type" value="Credit"> Credit<BR>
     <INPUT type="submit" value="Send"> <INPUT type="reset">
     </fieldset>
- </FORM>';
+   </FORM>';
 
 
-  echo $form;
+   print_r ($_SERVER['REQUEST_METHOD']);
+
+  if($_SERVER['REQUEST_METHOD'] == 'GET'){
+    echo $form;
+  }
+  else {
+    echo '<br> Here are the details of your transaction: <br>';
+    foreach($_POST as $key => $value) {
+      echo $key . ': ' . $value . '<br>';
+    }
+  }
+
+ 
+    
 ?>
